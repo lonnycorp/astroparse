@@ -1,0 +1,36 @@
+{
+  "name": "@lonnycorp/astroparse",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "bun build.ts",
+    "check": "bun run typecheck && bun run lint && bun test",
+    "lint": "eslint --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "tsdown": "tsdown"
+  },
+  "repository": {
+    "url": "git+https://github.com/lonnycorp/astroparse.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.5.0",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "eslint": "^9.39.1",
+    "tsdown": "^0.22.2",
+    "typescript": "^5"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  }
+}
