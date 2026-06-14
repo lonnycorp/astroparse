@@ -8,13 +8,13 @@ A minimal, zero dependency, fully-typed parser combinator library.
 ## Installation
 
 ```bash
-npm install astroparse
+npm install @lonnycorp/astroparse
 ```
 
 ## Quick Look
 
 ```typescript
-import * as parser from "astroparse"
+import * as parser from "@lonnycorp/astroparse"
 
 const parserName = new parser.Chain(
     new parser.atom.Predicate(
