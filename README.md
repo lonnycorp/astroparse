@@ -126,26 +126,6 @@ export type ResultError<TError> = {
 
 It is possible to create your own custom parsers by directly implementing classes or objects that conform to the above spec. However, it is recommended that you instead construct custom parsers by composing the suite of atomic parsers provided by AstroParse where possible (it is a parser _combinator_ library after all!)
 
-## Chaining
-
-For more compact composition, `Chain` wraps any parser definition and returns another parser definition with fluent helpers. Common parsers use this internally where it keeps the composition readable.
-
-```typescript
-const parserName = new parser.Chain(
-    new parser.atom.Predicate(
-        new parser.atom.Character(),
-        c => /[a-zA-Z]/.test(c)
-            ? { success: true }
-            : { success: false, error: null }
-    )
-)
-    .try()
-    .many()
-    .map.value(chars => chars.join("").toUpperCase())
-```
-
-The chain helpers mirror the most common unary wrappers: `map.value`, `map.error`, `try`, `peek`, and `many`.
-
 ## Atomic Parsers
 
 AstroParse provides a minimal (but arguably "complete") set of generic, atomic parsers:
@@ -170,3 +150,23 @@ AstroParse also provides a very small set of common parsers where the behavior i
 - `common.Text`: parses a specified text string exactly as-is. The string is treated atomically and will not consume input on failure.
 - `common.Whitespace`: parses a (potentially empty) region of whitespace. Will never return an error.
 - `common.SeparatedBy`: parses values separated by a separator parser. Parses zero or more by default, or one or more when `atLeastOne` is true.
+
+## Chaining
+
+For more compact composition, `Chain` wraps any parser definition and returns another parser definition with fluent helpers. Common parsers use this internally where it keeps the composition readable.
+
+```typescript
+const parserName = new parser.Chain(
+    new parser.atom.Predicate(
+        new parser.atom.Character(),
+        c => /[a-zA-Z]/.test(c)
+            ? { success: true }
+            : { success: false, error: null }
+    )
+)
+    .try()
+    .many()
+    .map.value(chars => chars.join("").toUpperCase())
+```
+
+The chain helpers mirror the most common unary wrappers: `map.value`, `map.error`, `try`, `peek`, and `many`.
