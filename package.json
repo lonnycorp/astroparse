@@ -10,7 +10,7 @@
     "tsdown": "tsdown"
   },
   "repository": {
-    "url": "git+https://github.com/lonnycorp/astroparse.git"
+    "url": "git+https://github.com/tlonny/astroparse.git"
   },
   "publishConfig": {
     "access": "public"
