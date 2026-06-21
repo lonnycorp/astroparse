@@ -1,7 +1,7 @@
 # AstroParse
 
-![Check](https://github.com/lonnycorp/astroparse/actions/workflows/check.yml/badge.svg)
-![Release](https://github.com/lonnycorp/astroparse/actions/workflows/release.yml/badge.svg)
+![Check](https://github.com/tlonny/astroparse/actions/workflows/check.yml/badge.svg)
+![Release](https://github.com/tlonny/astroparse/actions/workflows/release.yml/badge.svg)
 
 A minimal, zero dependency, fully-typed parser combinator library.
 
